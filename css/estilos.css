@@ -34,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../images/fondo.jpeg');
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../images/fondo.jpg');
     background-size: cover;
     clip-path: ellipse(50% 97% at 50% 0);
     z-index: -1;
@@ -94,6 +94,230 @@ body {
     /* Sombra para dar efecto de flotante */
 }
 
+/* Ajusta el tamaño del contenedor del slider para ocupar el 100% del ancho de la pantalla */
+.container3 {
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Ajusta el tamaño del slider para que se ajuste a la pantalla */
+#slider {
+    width: 100%;
+    max-width: 300px;
+    /* Establece un ancho máximo para el slider, puedes ajustar este valor según tus necesidades */
+    margin: 0 auto;
+    /* Centra el slider horizontalmente */
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    position: relative;
+}
+
+.carousel__elemento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 200px;
+}
+
+.carousel__imagen {
+    width: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    /* Ajusta el tamaño máximo de las imágenes en la versión móvil */
+    border-radius: 10px;
+}
+
+.carousel__resumen {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.glider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.glider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.glider-dot.active {
+    background-color: #fff;
+}
+
+/* Estilos para la versión de escritorio */
+@media screen and (min-width: 801px) {
+    .carousel {
+        padding-top: 0;
+        /* Elimina el espacio superior en la versión de escritorio */
+    }
+
+    .carousel__elemento {
+        margin: 0 10px;
+        /* Agrega un pequeño margen lateral entre las imágenes en la versión de escritorio */
+    }
+
+    .carousel__imagen {
+        max-height: 300px;
+        /* Ajusta el tamaño máximo de las imágenes en la versión de escritorio */
+    }
+
+    .glider-prev,
+    .glider-next {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 32px;
+        /* Ajusta el tamaño de las flechas en la versión de escritorio */
+    }
+
+    .glider-prev {
+        left: 0;
+    }
+
+    .glider-next {
+        right: 0;
+    }
+
+    .glider-dots {
+        display: none;
+        /* Oculta los indicadores en la versión de escritorio */
+    }
+}
+
+/* Estilo para los controles de navegación */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #007bff;
+    /* Cambia este color a tu preferencia */
+    width: 25px;
+    height: 25px;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    border: 1px solid #007bff;
+    /* Cambia este color a tu preferencia */
+    margin-top: -12px;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 24 24'%3E%3Cpath d='M15.41 16.58L10.83 12l4.58-4.58L14 6l-6 6 6 6z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.58L13.17 12l-4.58-4.58L10 6l6 6-6 6z'/%3E%3C/svg%3E");
+}
+
+
+.u-wrapper {
+    max-inline-size: 1232px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.btn {
+    /* font-family: var(--font); */
+    border-radius: 90px;
+    letter-spacing: 1.25px;
+    background: initial;
+    block-size: 50px;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    border: 2px solid var(--black);
+    font-weight: bold;
+    padding: 0 1.5em;
+}
+
+.btn.full {
+    width: 100%;
+}
+
+.btn.primary {
+    background:#DA1414;
+}
+
+.btn.secondary img {
+    position: relative;
+    bottom: 1px;
+}
+
+.btn i {
+    display: inline-block;
+}
+
+.btn span {
+    vertical-align: middle;
+}
+
+.btn i img {
+    vertical-align: middle;
+}
+
+.form {
+    max-inline-size: 550px;
+    margin: auto;
+}
+
+.form label {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: .5em;
+    padding-inline-start: .5em;
+}
+
+.form label span {
+    color: #DA1414;
+}
+
+.form input,
+.form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1rem;
+    padding: .8em;
+    border-radius: .5em;
+    border: 1px solid #858C94;
+}
+
+.form textarea {
+    margin-block-end: 2em;
+    font-family: inherit;
+}
+
+input::-webkit-input-placeholder {
+    color: #0F0A0A88;
+}
+
+.contact {
+    margin-block-end: 5em;
+}
+
+
+/* fin mine */
+
+
 /* Nav */
 
 .nav {
@@ -116,11 +340,29 @@ body {
     gap: 2em;
 }
 
+.nav__link2 {
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+}
+
 .nav__items {
     list-style: none;
 }
 
+.nav__items2 {
+    list-style: none;
+}
+
 .nav__links {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__link2 {
     color: #fff;
     text-decoration: none;
 }
@@ -195,6 +437,15 @@ body {
     padding-top: 80px;
     display: grid;
     width: 90%;
+    margin: 0 auto;
+    gap: 1em;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+}
+
+.about__main2 {
+    display: grid;
+    width: 100%;
     margin: 0 auto;
     gap: 1em;
     overflow: hidden;
@@ -427,12 +678,15 @@ body {
     background-color: #000000;
     padding-bottom: 10px;
     padding-top: 10px;
+    margin-top: auto;
+
 }
 
 .footer__title {
     font-weight: 300;
     font-size: 2rem;
     margin-bottom: 30px;
+
 }
 
 .footer__title,
@@ -447,6 +701,8 @@ body {
     align-items: center;
     border-bottom: 1px solid #fff;
     padding-bottom: 60px;
+    margin-top: auto;
+
 }
 
 .nav--footer {
@@ -629,6 +885,9 @@ body {
     }
 
 }
+
+
+
 
 @media (max-width:600px) {
     .hero__title {

@@ -1,31 +1,24 @@
-(function(){
-    
-    const sliders = [...document.querySelectorAll('.testimony__body')];
-    const buttonNext = document.querySelector('#next');
-    const buttonBefore = document.querySelector('#before');
-    let value;   
+// Redimensiona las imágenes al tamaño adecuado para el slider
+function resizeImages() {
+    var slider = document.getElementById("slider");
+    var images = slider.getElementsByClassName("carousel-item");
 
-    buttonNext.addEventListener('click', ()=>{
-        changePosition(1);
-    });
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i].getElementsByTagName("img")[0];
+        var containerHeight = slider.offsetHeight;
+        var imageAspectRatio = image.naturalWidth / image.naturalHeight;
+        var imageHeight = containerHeight;
 
-    buttonBefore.addEventListener('click', ()=>{
-        changePosition(-1);
-    });
-
-    const changePosition = (add)=>{
-        const currentTestimony = document.querySelector('.testimony__body--show').dataset.id;
-        value = Number(currentTestimony);
-        value+= add;
-
-
-        sliders[Number(currentTestimony)-1].classList.remove('testimony__body--show');
-        if(value === sliders.length+1 || value === 0){
-            value = value === 0 ? sliders.length  : 1;
+        if (imageAspectRatio > 1) {
+            // Si la imagen es más ancha que alta, ajustamos el alto basado en el ancho
+            imageHeight = slider.offsetWidth / imageAspectRatio;
         }
 
-        sliders[value-1].classList.add('testimony__body--show');
-
+        image.style.width = "100%";
+        image.style.height = "auto";
     }
+}
 
-})();
+// Llama a la función resizeImages cuando la página se carga y se redimensiona
+window.addEventListener("load", resizeImages);
+window.addEventListener("resize", resizeImages);
